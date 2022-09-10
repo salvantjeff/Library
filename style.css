@@ -48,3 +48,14 @@ label {
     margin-bottom: 0.3rem;
     font-size: 1rem;
 }
+
+.input-box {
+    position: relative;
+}
+
+.input-box > label {
+    position: absolute;
+    top: 25%;
+    left: 1rem;
+    opacity: 0.3;
+}
