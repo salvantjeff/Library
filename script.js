@@ -38,3 +38,9 @@ showForm.addEventListener('click', () => {
 
 inputs.forEach(input => input.addEventListener('keydown', ()=> isTyping = true));
 inputs.forEach(input => input.addEventListener('keyup', hideText));
+
+modal.addEventListener('click', (e) => {
+    if (e.target.dataset.id === 'popup') {
+        modal.close();
+    }
+});
