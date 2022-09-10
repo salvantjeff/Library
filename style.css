@@ -13,3 +13,8 @@ button {
     font: inherit;
     cursor: pointer;
 }
+
+/* Body defaults */
+body {
+    font-family: 'Poppins', sans-serif;
+}
