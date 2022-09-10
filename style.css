@@ -163,3 +163,37 @@ label.selected {
     grid-template-columns: repeat(auto-fit, 250px);
     gap: 2em;
 }
+
+/*===================== COLOR PALETTES == START ================== */
+.card-wrapper.standard {
+    padding: 1em;
+    border: 1px solid #000;
+    display: grid;
+    gap: 1em;
+    /* color theme */
+    background-color: lightblue;
+}
+.card-wrapper.avatar {
+    padding: 1em;
+    border: 1px solid #000;
+    display: grid;
+    gap: 1em;
+    /* color theme */
+    background-color: #023e8a;
+}
+.card-wrapper.percy {
+    padding: 1em;
+    border: 1px solid #000;
+    display: grid;
+    gap: 1em;
+    /* color theme */
+    background-color: #9357b5;
+}
+.card-wrapper.nature {
+    padding: 1em;
+    border: 1px solid #000;
+    display: grid;
+    gap: 1em;
+    /* color theme */
+    background-color: #004b23;
+}
