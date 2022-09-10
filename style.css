@@ -352,3 +352,7 @@ label.selected {
         rgba(255, 0, 0, 1) 100%
     );
 }
+
+.card-readButton {
+    background-color: #00fff7;
+}
