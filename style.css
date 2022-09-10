@@ -37,3 +37,8 @@ form {
 form h1 {
     text-align: center;
 }
+
+.form-contents {
+    display: grid;
+    gap:1em;
+}
