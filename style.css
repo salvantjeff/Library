@@ -42,3 +42,9 @@ form h1 {
     display: grid;
     gap:1em;
 }
+
+label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+}
