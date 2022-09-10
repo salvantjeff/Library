@@ -375,3 +375,8 @@ label.selected {
     border: 1px solid #000;
     background-color: #00d5ff;
 }
+
+.card-readButton:hover,
+.card-removeButton:hover {
+    background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2));
+}
