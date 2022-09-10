@@ -14,6 +14,30 @@
         <h1>your library fortress</h1>
     </header>
     <dialog data-id="popup">
+        <form action="" method="post" id="form">
+            <h1>Add new book</h1>
+            <div class="form-contents">
+                <p class="input-box">
+                    <label for="title" data-id="title" class="plc-holder">Title</label>
+                    <input type="text" name="title" id="title" class="regular" data-id="title">
+                </p>
+                <p class="input-box">
+                    <label for="author" data-id="author" class="plc-holder">Author</label>
+                    <input type="text" name="author" id="author" class="regular" data-id="author">
+                </p>
+                <p class="input-box">
+                    <label for="pages" data-id="pages" class="plc-holder">Total pages</label>
+                    <input type="number" name="pages" id="pages" class="regular" data-id="pages">
+                </p>
+                <p class="read-section">
+                    <label for="read" class="read">Have read it?</label>
+                    <input type="checkbox" name="read" id="read" class="read">
+                </p>
+                <p class="button-area">
+                    <button type="submit" id="addBook" class="add-book">Submit</button>
+                </p>
+            </div>
+        </form>
     </dialog>
 </body>
 </html>
