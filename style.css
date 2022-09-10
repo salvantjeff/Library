@@ -155,3 +155,11 @@ label.selected {
     color: white;
     scale: 1.2;
 }
+
+/* CARDS AREA */
+.cards {
+    padding: 1em 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 250px);
+    gap: 2em;
+}
