@@ -33,3 +33,7 @@ form {
     display: grid;
     gap: 1em;
 }
+
+form h1 {
+    text-align: center;
+}
