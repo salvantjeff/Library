@@ -124,3 +124,10 @@ dialog::backdrop {
 label.selected {
     opacity: 0;
 }
+
+/* CARDS */
+.container {
+    padding: 0 2em;
+    background-color: #00bbf9;
+    min-height: 100vh;
+}
