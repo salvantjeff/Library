@@ -96,3 +96,12 @@ input {
 .button-area {
     display: grid;
 }
+
+.add-book {
+    background-color: #0597ff;
+    color: white;
+    display: block;
+    border: none;
+    border-radius: 0.8em;
+    padding: 1rem 2rem;
+}
