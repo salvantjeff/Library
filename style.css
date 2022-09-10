@@ -250,3 +250,53 @@ label.selected {
     height: 175px;
     overflow: hidden;
 }
+/*----- card area---- */
+.card.standard {
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 0.8rem;
+    padding: 0.5em;
+    width: 100%;
+    height: 400px;
+    display: grid;
+    box-shadow: 0 0 5px #023e8a;
+    /* color theme */
+    background-color: #f5d847;
+}
+.card.avatar {
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 0.8rem;
+    padding: 0.5em;
+    width: 100%;
+    height: 400px;
+    display: grid;
+    box-shadow: 0 0 5px #023e8a;
+    /* color theme */
+    background-color: #caf0f8;
+}
+.card.percy {
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 0.8rem;
+    padding: 0.5em;
+    width: 100%;
+    height: 400px;
+    display: grid;
+    box-shadow: 0 0 5px #023e8a;
+    /* color theme */
+    background-color: #ed5426;
+}
+.card.nature {
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 0.8rem;
+    padding: 0.5em;
+    width: 100%;
+    height: 400px;
+    display: grid;
+    box-shadow: 0 0 5px #023e8a;
+    /* color theme */
+    background-color: #008000;
+}
+/*===================== COLOR PALETTES == END ================== */
