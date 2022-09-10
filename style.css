@@ -197,3 +197,56 @@ label.selected {
     /* color theme */
     background-color: #004b23;
 }
+/*----- card details area ---- */
+.card-details.standard {
+    padding: 1em 0.5em;
+    display: grid;
+    gap: 1em;
+    grid-template-rows: 1fr auto auto;
+    /* color theme */
+    border: 2px solid #0077ff;
+    background-color: white;
+    color: black;
+
+    height: 175px;
+    overflow: hidden;
+}
+.card-details.avatar {
+    padding: 1em 0.5em;
+    display: grid;
+    gap: 1em;
+    grid-template-rows: 1fr auto auto;
+    /* color theme */
+    background-color: #48cae4;
+    border: 2px solid #ffea00;
+    color: black;
+
+    height: 175px;
+    overflow: hidden;
+}
+.card-details.percy {
+    padding: 1em 0.5em;
+    display: grid;
+    gap: 1em;
+    grid-template-rows: 1fr auto auto;
+    /* color theme */
+    background-color: #3a86ff;
+    border: 2px solid #ffbe0b;
+    color: white;
+
+    height: 175px;
+    overflow: hidden;
+}
+.card-details.nature {
+    padding: 1em 0.5em;
+    display: grid;
+    gap: 1em;
+    grid-template-rows: 1fr auto auto;
+    /* color theme */
+    background-color: #9ef01a;
+    border: 2px solid #f04a4a;
+    color: black;
+
+    height: 175px;
+    overflow: hidden;
+}
