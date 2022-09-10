@@ -35,3 +35,6 @@ function hideText(){
 showForm.addEventListener('click', () => {
     modal.showModal();
 });
+
+inputs.forEach(input => input.addEventListener('keydown', ()=> isTyping = true));
+inputs.forEach(input => input.addEventListener('keyup', hideText));
