@@ -31,3 +31,7 @@ function hideText(){
       }
     });
 }
+
+showForm.addEventListener('click', () => {
+    modal.showModal();
+});
