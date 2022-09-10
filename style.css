@@ -136,3 +136,15 @@ label.selected {
     text-align: center;
     padding: 2em 0;
 }
+
+.add-book-header {
+    width: max-content;
+    border: none;
+    border-radius: 1em;
+    margin: auto;
+    padding: 0 0.5em;
+    background-color: black;
+    color: white;
+    scale: 0.9;
+    transition: scale 400ms ease-in-out;
+}
