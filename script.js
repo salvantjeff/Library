@@ -61,3 +61,27 @@ function Book(title, author, pages, read) {
     this.read = read;
     this.colorTheme = 'standard';
 }
+
+function addBookToLibrary(e) {
+    e.preventDefault();
+  
+    let userInputs = allInputsArray.map(input => {
+      if (input.type === 'checkbox') {
+        return input.checked;
+      } else {
+        return input.value;
+      }
+    });
+  
+    let newBookInputs = new Book(userInputs[0], userInputs[1], userInputs[2], userInputs[3]);
+    myLibrary.push(newBookInputs);
+  
+    modal.close();
+    theForm.reset();
+    labels.forEach(label => {
+      label.classList.remove('selected');
+    });
+  
+    printBooksInLibrary(myLibrary, cardsBox);
+    localStorage.setItem('libraryBooks', JSON.stringify(myLibrary));
+}
