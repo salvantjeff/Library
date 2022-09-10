@@ -356,3 +356,22 @@ label.selected {
 .card-readButton {
     background-color: #00fff7;
 }
+
+/* JS toggled classes */
+.card-readButton.false {
+    width: max-content;
+    height: max-content;
+    padding: 0.5rem 1rem;
+    border-radius: 2em;
+    border: 1px solid #000;
+    background-color: lightyellow;
+}
+
+.card-readButton.true {
+    width: max-content;
+    height: max-content;
+    padding: 0.5rem 1rem;
+    border-radius: 2em;
+    border: 1px solid #000;
+    background-color: #00d5ff;
+}
