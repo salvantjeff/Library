@@ -30,4 +30,6 @@ form {
     background-color: pink;
     border-radius: 0.8em;
     padding: 1em 2em 2em;
+    display: grid;
+    gap: 1em;
 }
