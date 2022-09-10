@@ -148,3 +148,10 @@ label.selected {
     scale: 0.9;
     transition: scale 400ms ease-in-out;
 }
+
+.add-book-header:hover {
+    cursor: pointer;
+    background-color: #ff9e00;
+    color: white;
+    scale: 1.2;
+}
