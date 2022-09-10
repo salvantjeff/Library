@@ -131,3 +131,8 @@ label.selected {
     background-color: #00bbf9;
     min-height: 100vh;
 }
+
+.add-book-area {
+    text-align: center;
+    padding: 2em 0;
+}
