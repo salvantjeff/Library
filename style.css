@@ -23,3 +23,11 @@ body {
 header {
     padding: 1em 2em;
 }
+
+/* FORM */
+form {
+    max-width: 600px;
+    background-color: pink;
+    border-radius: 0.8em;
+    padding: 1em 2em 2em;
+}
