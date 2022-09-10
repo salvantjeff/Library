@@ -44,3 +44,12 @@ modal.addEventListener('click', (e) => {
         modal.close();
     }
 });
+
+//------------------------CARD FUNCTIONALITY-----------------------------
+// Define vars and constants
+const theForm = document.getElementById('form');
+const submitBook = document.getElementById('addBook');
+const allInputs = document.querySelectorAll('input');
+let allInputsArray = [...allInputs];
+const cardsBox = document.querySelector('.cards');
+let myLibrary = JSON.parse(localStorage.getItem('libraryBooks')) || [];
