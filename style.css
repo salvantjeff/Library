@@ -83,3 +83,8 @@ input {
     padding-top: 4px;
     display: block;
 }
+
+.read-section {
+    display: flex;
+    align-items: center;
+}
