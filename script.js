@@ -18,3 +18,16 @@ const showForm = document.querySelector('.add-book-header');
 const labels = document.querySelectorAll('.plc-holder');
 const inputs = document.querySelectorAll('.input-box input');
 let isTyping = false;
+
+function hideText(){
+    if (!isTyping) return
+    const currentInput = this;
+    labels.forEach(label => {
+      if (label.dataset.id === currentInput.dataset.id) {
+        label.classList.add('selected');
+        if (currentInput.value === '') {
+          label.classList.remove('selected');
+        }
+      }
+    });
+}
