@@ -18,3 +18,8 @@ button {
 body {
     font-family: 'Poppins', sans-serif;
 }
+
+/* HEADER AREA */
+header {
+    padding: 1em 2em;
+}
