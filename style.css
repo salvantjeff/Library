@@ -88,3 +88,7 @@ input {
     display: flex;
     align-items: center;
 }
+
+.read-section input {
+    margin-left: 10px;
+}
