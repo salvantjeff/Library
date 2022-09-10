@@ -78,3 +78,8 @@ input {
 .regular:focus {
     border: 2px solid black;
 }
+
+.read {
+    padding-top: 4px;
+    display: block;
+}
