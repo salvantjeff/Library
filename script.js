@@ -108,3 +108,32 @@ function printBooksInLibrary(bookList = [], container) {
       `;
     }).join('');
 }
+
+function handleCardClick(e) {
+    let button = e.target;
+    let buttonIdx = parseInt(button.dataset.index);
+    let updatedUserInputs = myLibrary[buttonIdx];
+  
+    if (button.className.includes('card-readButton')) {
+      updatedUserInputs.read = !updatedUserInputs.read;
+      localStorage.setItem('libraryBooks', JSON.stringify(myLibrary));
+      printBooksInLibrary(myLibrary, cardsBox);
+    } 
+  
+    if (button.className.includes('card-colorButton')) {
+      updatedUserInputs.colorTheme = generatePalette(palettes);
+      localStorage.setItem('libraryBooks', JSON.stringify(myLibrary));
+      printBooksInLibrary(myLibrary, cardsBox);
+    } 
+  
+    if (button.className.includes('card-removeButton')) {
+      myLibrary.splice(buttonIdx, 1);
+      localStorage.setItem('libraryBooks', JSON.stringify(myLibrary));
+      printBooksInLibrary(myLibrary, cardsBox);
+    } 
+}
+
+submitBook.addEventListener('click', addBookToLibrary);
+cardsBox.addEventListener('click', handleCardClick);
+// on page load - use local storage 
+printBooksInLibrary(myLibrary, cardsBox);
