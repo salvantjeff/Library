@@ -307,3 +307,48 @@ label.selected {
     grid-template-rows: auto;
     gap: 0.5rem;
 }
+
+.card-colorButton {
+    display: block;
+    height: max-content;
+    
+    background-color: rgb(98, 255, 0);
+    border: 1px solid #000;
+    padding: 0.5rem 1rem;
+    border-radius: 2em;
+    
+    color: white;
+
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    linear-gradient(
+        300deg,
+        rgba(255, 0, 0, 1) 0%,
+        rgba(255, 154, 0, 1) 10%,
+        rgba(208, 222, 33, 1) 20%,
+        rgba(79, 220, 74, 1) 30%,
+        rgba(63, 218, 216, 1) 40%,
+        rgba(47, 201, 226, 1) 50%,
+        rgba(28, 127, 238, 1) 60%,
+        rgb(143, 87, 255) 70%,
+        rgba(186, 12, 248, 1) 80%,
+        rgba(251, 7, 217, 1) 90%,
+        rgba(255, 0, 0, 1) 100%
+    );
+}
+.card-colorButton:hover {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+    linear-gradient(
+        300deg,
+        rgba(255, 0, 0, 1) 0%,
+        rgba(255, 154, 0, 1) 10%,
+        rgba(208, 222, 33, 1) 20%,
+        rgba(79, 220, 74, 1) 30%,
+        rgba(63, 218, 216, 1) 40%,
+        rgba(47, 201, 226, 1) 50%,
+        rgba(28, 127, 238, 1) 60%,
+        rgb(143, 87, 255) 70%,
+        rgba(186, 12, 248, 1) 80%,
+        rgba(251, 7, 217, 1) 90%,
+        rgba(255, 0, 0, 1) 100%
+    );
+}
