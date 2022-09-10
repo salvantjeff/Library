@@ -92,3 +92,7 @@ input {
 .read-section input {
     margin-left: 10px;
 }
+
+.button-area {
+    display: grid;
+}
