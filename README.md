@@ -1,5 +1,5 @@
 # library
-
+## [Live Demo](https://salvantjeff.github.io/library/)
 ![Library](images/library-screen-shot.png)
 
 ## Introduction
