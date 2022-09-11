@@ -127,7 +127,7 @@ label.selected {
 
 /* CARDS */
 .container {
-    padding: 0 2em;
+    padding: 0 2em 2em;
     background-color: #00bbf9;
     min-height: 100vh;
 }
