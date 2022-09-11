@@ -392,3 +392,9 @@ label.selected {
     border-radius: 1rem;
     border: 1px solid #000;
 }
+
+/* FOOTER AREA */
+footer {
+    text-align: center;
+    padding: 1em 0;
+}
