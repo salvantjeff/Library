@@ -54,12 +54,14 @@ let allInputsArray = [...allInputs];
 const cardsBox = document.querySelector('.cards');
 let myLibrary = JSON.parse(localStorage.getItem('libraryBooks')) || [];
 
-function Book(title, author, pages, read) {
+class Book {
+  constructor(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
     this.colorTheme = 'standard';
+  }
 }
 
 function addBookToLibrary(e) {
