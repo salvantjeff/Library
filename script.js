@@ -39,16 +39,16 @@ showForm.addEventListener('click', () => {
 inputs.forEach(input => input.addEventListener('keydown', ()=> isTyping = true));
 inputs.forEach(input => input.addEventListener('keyup', hideText.bind(input)));
 
-// inputs.forEach(input => input.addEventListener('input', validateForm.bind(input)));
+inputs.forEach(input => input.addEventListener('input', validateForm.bind(input)));
 
-// function validateForm () {
-//   const input = this;
-//   if (input.value.length === 0) {
-//     input.classList.add('invalid'); 
-//   } else {
-//     input.classList.remove('invalid'); 
-//   }
-// }
+function validateForm () {
+  const input = this;
+  if (input.value.length === 0) {
+    input.classList.add('invalid'); 
+  } else {
+    input.classList.remove('invalid'); 
+  }
+}
 
 function checkValidity() {
   if (inputs[0].className.includes('invalid') ||
