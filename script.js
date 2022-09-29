@@ -59,15 +59,15 @@ function checkValidity() {
   return true
 }
 
-// function isEmpty() {
-//   inputs.forEach(input => {
-//     if (input.value.length === 0) {
-//       input.classList.add('invalid');
-//     } else {
-//       input.classList.remove('invalid');
-//     }
-//   })
-// }
+function isEmpty() {
+  inputs.forEach(input => {
+    if (input.value.length === 0) {
+      input.classList.add('invalid');
+    } else {
+      input.classList.remove('invalid');
+    }
+  })
+}
 
 modal.addEventListener('click', (e) => {
     if (e.target.dataset.id === 'popup') {
@@ -105,7 +105,7 @@ function addBookToLibrary(e) {
     }
   });
 
-  // isEmpty();
+  isEmpty();
   let validity = checkValidity();
   if (validity) {
     let newBookInputs = new Book(userInputs[0], userInputs[1], userInputs[2], userInputs[3]);
