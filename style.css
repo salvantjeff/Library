@@ -417,7 +417,15 @@ footer {
 input[name="title"].invalid,
 input[name="author"].invalid,
 input[name="pages"].invalid {
-    background-color: rgb(255, 107, 107);
+    background-color: rgb(255, 147, 147);
     border: 2px solid red;
+    color: black;
+}
+
+.input-box .error {
+    position: absolute;
+    top: 60%;
+    left: 1rem;
     color: red;
+    font-size: 0.8rem;
 }
