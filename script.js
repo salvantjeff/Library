@@ -36,6 +36,10 @@ showForm.addEventListener('click', () => {
     modal.showModal();
 });
 
+const titleError = document.querySelector('[data-id="title"]');
+const authorError = document.querySelector('[data-id="author"]');
+const pagesError = document.querySelector('[data-id="pages"]');
+
 inputs.forEach(input => input.addEventListener('keydown', ()=> isTyping = true));
 inputs.forEach(input => input.addEventListener('keyup', hideText.bind(input)));
 
@@ -45,8 +49,10 @@ function validateForm () {
   const input = this;
   if (input.value.length === 0) {
     input.classList.add('invalid'); 
+    addMessage(input)
   } else {
     input.classList.remove('invalid'); 
+    removeMessage(input)
   }
 }
 
@@ -63,10 +69,39 @@ function isEmpty() {
   inputs.forEach(input => {
     if (input.value.length === 0) {
       input.classList.add('invalid');
+      addMessage(input)
     } else {
       input.classList.remove('invalid');
+      removeMessage(input)
     }
   })
+}
+
+function addMessage(input) {
+  let message = '';
+  
+  if (input.dataset.id === 'title') {
+    message = 'please enter a valid book title';
+    titleError.textContent = message;
+  } else if (input.dataset.id === 'author') {
+    message = 'please enter a valid author';
+    authorError.textContent = message;
+  } else if (input.dataset.id === 'pages') {
+    message = 'please enter the total pages';
+    pagesError.textContent = message;
+  }
+}
+
+function removeMessage(input) {
+  let message = '';
+  
+  if (input.dataset.id === 'title') {
+    titleError.textContent = message;
+  } else if (input.dataset.id === 'author') {
+    authorError.textContent = message;
+  } else if (input.dataset.id === 'pages') {
+    pagesError.textContent = message;
+  }
 }
 
 modal.addEventListener('click', (e) => {
