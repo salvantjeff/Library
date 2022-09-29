@@ -37,7 +37,37 @@ showForm.addEventListener('click', () => {
 });
 
 inputs.forEach(input => input.addEventListener('keydown', ()=> isTyping = true));
-inputs.forEach(input => input.addEventListener('keyup', hideText));
+inputs.forEach(input => input.addEventListener('keyup', hideText.bind(input)));
+
+// inputs.forEach(input => input.addEventListener('input', validateForm.bind(input)));
+
+// function validateForm () {
+//   const input = this;
+//   if (input.value.length === 0) {
+//     input.classList.add('invalid'); 
+//   } else {
+//     input.classList.remove('invalid'); 
+//   }
+// }
+
+function checkValidity() {
+  if (inputs[0].className.includes('invalid') ||
+  inputs[1].className.includes('invalid') ||
+  inputs[2].className.includes('invalid')) {
+    return false;
+  }
+  return true
+}
+
+// function isEmpty() {
+//   inputs.forEach(input => {
+//     if (input.value.length === 0) {
+//       input.classList.add('invalid');
+//     } else {
+//       input.classList.remove('invalid');
+//     }
+//   })
+// }
 
 modal.addEventListener('click', (e) => {
     if (e.target.dataset.id === 'popup') {
@@ -65,16 +95,19 @@ class Book {
 }
 
 function addBookToLibrary(e) {
-    e.preventDefault();
-  
-    let userInputs = allInputsArray.map(input => {
-      if (input.type === 'checkbox') {
-        return input.checked;
-      } else {
-        return input.value;
-      }
-    });
-  
+  e.preventDefault();
+
+  let userInputs = allInputsArray.map(input => {
+    if (input.type === 'checkbox') {
+      return input.checked;
+    } else {
+      return input.value;
+    }
+  });
+
+  // isEmpty();
+  let validity = checkValidity();
+  if (validity) {
     let newBookInputs = new Book(userInputs[0], userInputs[1], userInputs[2], userInputs[3]);
     myLibrary.push(newBookInputs);
   
@@ -86,6 +119,7 @@ function addBookToLibrary(e) {
   
     printBooksInLibrary(myLibrary, cardsBox);
     localStorage.setItem('libraryBooks', JSON.stringify(myLibrary));
+  } 
 }
 
 function printBooksInLibrary(bookList = [], container) {
