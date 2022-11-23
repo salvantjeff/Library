@@ -1,6 +1,7 @@
 import generatePalette from "./generatePalette";
 import Book from "./Book";
 import printBooksInLibrary from './printBooksInLibrary';
+import handleCardClick from './handleCardClick';
 
 let palettes = ['standard', 'avatar', 'percy', 'nature'];
 let lastPalette;
@@ -140,32 +141,10 @@ function addBookToLibrary(e) {
   } 
 }
 
-
-function handleCardClick(e) {
-    let button = e.target;
-    let buttonIdx = parseInt(button.dataset.index);
-    let updatedUserInputs = myLibrary[buttonIdx];
-  
-    if (button.className.includes('card-readButton')) {
-      updatedUserInputs.read = !updatedUserInputs.read;
-      localStorage.setItem('libraryBooks', JSON.stringify(myLibrary));
-      printBooksInLibrary(myLibrary, cardsBox);
-    } 
-  
-    if (button.className.includes('card-colorButton')) {
-      updatedUserInputs.colorTheme = generatePalette(palettes, lastPalette);
-      localStorage.setItem('libraryBooks', JSON.stringify(myLibrary));
-      printBooksInLibrary(myLibrary, cardsBox);
-    } 
-  
-    if (button.className.includes('card-removeButton')) {
-      myLibrary.splice(buttonIdx, 1);
-      localStorage.setItem('libraryBooks', JSON.stringify(myLibrary));
-      printBooksInLibrary(myLibrary, cardsBox);
-    } 
-}
-
 submitBook.addEventListener('click', addBookToLibrary);
-cardsBox.addEventListener('click', handleCardClick);
+cardsBox.addEventListener('click', (e) => {
+  handleCardClick(e, myLibrary, cardsBox, palettes, lastPalette);
+});
+
 // on page load - use local storage 
 printBooksInLibrary(myLibrary, cardsBox);
