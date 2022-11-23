@@ -1,4 +1,5 @@
 import generatePalette from "./generatePalette";
+import Book from "./Book";
 
 let palettes = ['standard', 'avatar', 'percy', 'nature'];
 let lastPalette;
@@ -109,16 +110,6 @@ const allInputs = document.querySelectorAll('input');
 let allInputsArray = [...allInputs];
 const cardsBox = document.querySelector('.cards');
 let myLibrary = JSON.parse(localStorage.getItem('libraryBooks')) || [];
-
-class Book {
-  constructor(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.colorTheme = 'standard';
-  }
-}
 
 function addBookToLibrary(e) {
   e.preventDefault();
