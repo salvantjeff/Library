@@ -1,16 +1,7 @@
-//-----------------------GENERATE COLOR PALeTTES-----------------------
+import generatePalette from "./generatePalette";
 
 let palettes = ['standard', 'avatar', 'percy', 'nature'];
 let lastPalette;
-function generatePalette(palettesArr, lastPalette) {
-  let idx = Math.floor(Math.random() * palettesArr.length);
-  const chosenPalette = palettesArr[idx];
-  if (lastPalette === chosenPalette) {
-    return generatePalette(palettesArr);
-  }
-  lastPalette = chosenPalette;
-  return chosenPalette;
-}
 
 // ----------------------POP UP FORM-------------------------------
 const modal = document.querySelector('dialog');
@@ -192,7 +183,7 @@ function handleCardClick(e) {
     } 
   
     if (button.className.includes('card-colorButton')) {
-      updatedUserInputs.colorTheme = generatePalette(palettes);
+      updatedUserInputs.colorTheme = generatePalette(palettes, lastPalette);
       localStorage.setItem('libraryBooks', JSON.stringify(myLibrary));
       printBooksInLibrary(myLibrary, cardsBox);
     } 
