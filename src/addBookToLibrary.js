@@ -9,7 +9,13 @@ function addBookToLibrary(
     theForm, 
     labels, 
     printBooksInLibrary, 
-    cardsBox
+    cardsBox,
+    addMessage,
+    removeMessage,
+    inputs,
+    titleError,
+    authorError,
+    pagesError
     ) {
     e.preventDefault();
   
@@ -21,8 +27,8 @@ function addBookToLibrary(
       }
     });
   
-    isEmpty();
-    let validity = checkValidity();
+    isEmpty(inputs, addMessage, removeMessage, titleError, authorError, pagesError);
+    let validity = checkValidity(inputs);
     if (validity) {
       let newBookInputs = new Book(userInputs[0], userInputs[1], userInputs[2], userInputs[3]);
       myLibrary.push(newBookInputs);
