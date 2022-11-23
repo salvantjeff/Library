@@ -100,9 +100,9 @@ function removeMessage(input) {
 }
 
 modal.addEventListener('click', (e) => {
-    if (e.target.dataset.id === 'popup') {
-        modal.close();
-    }
+  if (e.target.dataset.id === 'popup') {
+    modal.close();
+  }
 });
 
 //------------------------CARD FUNCTIONALITY-----------------------------
