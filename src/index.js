@@ -2,6 +2,7 @@ import generatePalette from "./generatePalette";
 import Book from "./Book";
 import printBooksInLibrary from './printBooksInLibrary';
 import handleCardClick from './handleCardClick';
+import addBookToLibrary from './addBookToLibrary';
 
 let palettes = ['standard', 'avatar', 'percy', 'nature'];
 let lastPalette;
@@ -113,35 +114,22 @@ let allInputsArray = [...allInputs];
 const cardsBox = document.querySelector('.cards');
 let myLibrary = JSON.parse(localStorage.getItem('libraryBooks')) || [];
 
-function addBookToLibrary(e) {
-  e.preventDefault();
+submitBook.addEventListener('click', (e) => {
+  addBookToLibrary(
+    e,
+    Book,
+    allInputsArray,
+    isEmpty,
+    checkValidity,
+    myLibrary,
+    modal,
+    theForm,
+    labels,
+    printBooksInLibrary,
+    cardsBox
+  );
+});
 
-  let userInputs = allInputsArray.map(input => {
-    if (input.type === 'checkbox') {
-      return input.checked;
-    } else {
-      return input.value;
-    }
-  });
-
-  isEmpty();
-  let validity = checkValidity();
-  if (validity) {
-    let newBookInputs = new Book(userInputs[0], userInputs[1], userInputs[2], userInputs[3]);
-    myLibrary.push(newBookInputs);
-  
-    modal.close();
-    theForm.reset();
-    labels.forEach(label => {
-      label.classList.remove('selected');
-    });
-  
-    printBooksInLibrary(myLibrary, cardsBox);
-    localStorage.setItem('libraryBooks', JSON.stringify(myLibrary));
-  } 
-}
-
-submitBook.addEventListener('click', addBookToLibrary);
 cardsBox.addEventListener('click', (e) => {
   handleCardClick(e, myLibrary, cardsBox, palettes, lastPalette);
 });
