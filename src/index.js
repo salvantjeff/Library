@@ -3,6 +3,8 @@ import Book from "./Book";
 import printBooksInLibrary from './printBooksInLibrary';
 import handleCardClick from './handleCardClick';
 import addBookToLibrary from './addBookToLibrary';
+import { isEmpty, checkValidity, validateForm} from "./validators";
+import { addMessage, removeMessage } from "./messages";
 
 let palettes = ['standard', 'avatar', 'percy', 'nature'];
 let lastPalette;
@@ -15,16 +17,16 @@ const inputs = document.querySelectorAll('.input-box input');
 let isTyping = false;
 
 function hideText(){
-    if (!isTyping) return
-    const currentInput = this;
-    labels.forEach(label => {
-      if (label.dataset.id === currentInput.dataset.id) {
-        label.classList.add('selected');
-        if (currentInput.value === '') {
-          label.classList.remove('selected');
-        }
+  if (!isTyping) return
+  const currentInput = this;
+  labels.forEach(label => {
+    if (label.dataset.id === currentInput.dataset.id) {
+      label.classList.add('selected');
+      if (currentInput.value === '') {
+        label.classList.remove('selected');
       }
-    });
+    }
+  });
 }
 
 showForm.addEventListener('click', () => {
@@ -38,66 +40,19 @@ const pagesError = document.querySelector('[data-id="pages"]');
 inputs.forEach(input => input.addEventListener('keydown', ()=> isTyping = true));
 inputs.forEach(input => input.addEventListener('keyup', hideText.bind(input)));
 
-inputs.forEach(input => input.addEventListener('input', validateForm.bind(input)));
-
-function validateForm () {
-  const input = this;
-  if (input.value.length === 0) {
-    input.classList.add('invalid'); 
-    addMessage(input)
-  } else {
-    input.classList.remove('invalid'); 
-    removeMessage(input)
-  }
-}
-
-function checkValidity() {
-  if (inputs[0].className.includes('invalid') ||
-  inputs[1].className.includes('invalid') ||
-  inputs[2].className.includes('invalid')) {
-    return false;
-  }
-  return true
-}
-
-function isEmpty() {
-  inputs.forEach(input => {
-    if (input.value.length === 0) {
-      input.classList.add('invalid');
-      addMessage(input)
-    } else {
-      input.classList.remove('invalid');
-      removeMessage(input)
-    }
-  })
-}
-
-function addMessage(input) {
-  let message = '';
-  
-  if (input.dataset.id === 'title') {
-    message = 'please enter a valid book title';
-    titleError.textContent = message;
-  } else if (input.dataset.id === 'author') {
-    message = 'please enter a valid author';
-    authorError.textContent = message;
-  } else if (input.dataset.id === 'pages') {
-    message = 'please enter the total pages';
-    pagesError.textContent = message;
-  }
-}
-
-function removeMessage(input) {
-  let message = '';
-  
-  if (input.dataset.id === 'title') {
-    titleError.textContent = message;
-  } else if (input.dataset.id === 'author') {
-    authorError.textContent = message;
-  } else if (input.dataset.id === 'pages') {
-    pagesError.textContent = message;
-  }
-}
+inputs.forEach(input => {
+  return input.addEventListener(
+    'input', 
+    validateForm.bind(
+      addMessage, 
+      removeMessage, 
+      input, 
+      titleError, 
+      authorError, 
+      pagesError
+    )
+  )
+});
 
 modal.addEventListener('click', (e) => {
   if (e.target.dataset.id === 'popup') {
@@ -126,7 +81,13 @@ submitBook.addEventListener('click', (e) => {
     theForm,
     labels,
     printBooksInLibrary,
-    cardsBox
+    cardsBox,
+    addMessage,
+    removeMessage,
+    inputs,
+    titleError,
+    authorError,
+    pagesError
   );
 });
 
