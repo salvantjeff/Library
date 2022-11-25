@@ -19,7 +19,7 @@ function checkValidity(inputs) {
     return true;
 };
 
-function validateForm (addMessage, removeMessage, input, titleError, authorError, pagesError) {
+function validateForm (addMessage, removeMessage, titleError, authorError, pagesError) {
     const input = this;
     if (input.value.length === 0) {
       input.classList.add('invalid'); 
