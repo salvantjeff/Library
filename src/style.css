@@ -32,7 +32,7 @@ header {
 }
 
 /* FORM */
-form {
+#form {
     max-width: 600px;
     background-color: pink;
     border-radius: 0.8em;
