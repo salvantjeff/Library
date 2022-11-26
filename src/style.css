@@ -1,0 +1,431 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Poppins:ital,wght@0,400;0,500;0,700;1,300&display=swap');
+
+/* CSS resets */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Defaults for Inputs and Buttons */
+input,
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+/* Body defaults */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* HEADER AREA */
+header {
+    padding: 1em 2em;
+}
+
+/* FORM */
+form {
+    max-width: 600px;
+    background-color: pink;
+    border-radius: 0.8em;
+    padding: 1em 2em 2em;
+    display: grid;
+    gap: 1em;
+}
+
+form h1 {
+    text-align: center;
+}
+
+.form-contents {
+    display: grid;
+    gap: 1em;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+}
+
+.input-box {
+    position: relative;
+}
+
+.input-box>label {
+    position: absolute;
+    top: 25%;
+    left: 1rem;
+    opacity: 0.3;
+}
+
+input {
+    display: block;
+    padding: 0.5rem 0.3rem;
+    border: none;
+    outline: none;
+}
+
+.regular {
+    width: 100%;
+    border-radius: 0.8em;
+    height: 3rem;
+    padding-left: 1rem;
+    font-size: 1rem;
+}
+
+.regular:focus {
+    border: 2px solid black;
+}
+
+.read {
+    padding-top: 4px;
+    display: block;
+}
+
+.read-section {
+    display: flex;
+    align-items: center;
+}
+
+.read-section input {
+    margin-left: 10px;
+    /* appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 0.12rem;
+    background-color: #fff; */
+}
+
+.button-area {
+    display: grid;
+}
+
+.add-book {
+    background-color: #0597ff;
+    color: white;
+    display: block;
+    border: none;
+    border-radius: 0.8em;
+    padding: 1rem 2rem;
+}
+
+/* MODAL STYLING */
+dialog {
+    margin: auto;
+    border: none;
+    border-radius: 0.8em;
+    transition: all 300ms ease-in-out;
+    width: max-content;
+    border: 1px solid #000;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* JS */
+label.selected {
+    opacity: 0;
+}
+
+/* CARDS */
+.container {
+    padding: 0 2em 2em;
+    background-color: #00bbf9;
+    min-height: 100vh;
+}
+
+.add-book-area {
+    text-align: center;
+    padding: 2em 0;
+}
+
+.add-book-header {
+    width: max-content;
+    border: none;
+    border-radius: 1em;
+    margin: auto;
+    padding: 0 0.5em;
+    background-color: black;
+    color: white;
+    scale: 0.9;
+    transition: scale 400ms ease-in-out;
+}
+
+.add-book-header:hover {
+    cursor: pointer;
+    background-color: #ff9e00;
+    color: white;
+    scale: 1.2;
+}
+
+/* CARDS AREA */
+.cards {
+    padding: 1em 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 250px);
+    gap: 2em;
+}
+
+/*===================== COLOR PALETTES == START ================== */
+.card-wrapper.standard {
+    padding: 1em;
+    border: 1px solid #000;
+    display: grid;
+    gap: 1em;
+    /* color theme */
+    background-color: lightblue;
+}
+
+.card-wrapper.avatar {
+    padding: 1em;
+    border: 1px solid #000;
+    display: grid;
+    gap: 1em;
+    /* color theme */
+    background-color: #023e8a;
+}
+
+.card-wrapper.percy {
+    padding: 1em;
+    border: 1px solid #000;
+    display: grid;
+    gap: 1em;
+    /* color theme */
+    background-color: #9357b5;
+}
+
+.card-wrapper.nature {
+    padding: 1em;
+    border: 1px solid #000;
+    display: grid;
+    gap: 1em;
+    /* color theme */
+    background-color: #004b23;
+}
+
+/*----- card details area ---- */
+.card-details.standard {
+    padding: 1em 0.5em;
+    display: grid;
+    gap: 1em;
+    grid-template-rows: 1fr auto auto;
+    /* color theme */
+    border: 2px solid #0077ff;
+    background-color: white;
+    color: black;
+
+    height: 175px;
+    overflow: hidden;
+}
+
+.card-details.avatar {
+    padding: 1em 0.5em;
+    display: grid;
+    gap: 1em;
+    grid-template-rows: 1fr auto auto;
+    /* color theme */
+    background-color: #48cae4;
+    border: 2px solid #ffea00;
+    color: black;
+
+    height: 175px;
+    overflow: hidden;
+}
+
+.card-details.percy {
+    padding: 1em 0.5em;
+    display: grid;
+    gap: 1em;
+    grid-template-rows: 1fr auto auto;
+    /* color theme */
+    background-color: #3a86ff;
+    border: 2px solid #ffbe0b;
+    color: white;
+
+    height: 175px;
+    overflow: hidden;
+}
+
+.card-details.nature {
+    padding: 1em 0.5em;
+    display: grid;
+    gap: 1em;
+    grid-template-rows: 1fr auto auto;
+    /* color theme */
+    background-color: #9ef01a;
+    border: 2px solid #f04a4a;
+    color: black;
+
+    height: 175px;
+    overflow: hidden;
+}
+
+/*----- card area---- */
+.card.standard {
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 0.8rem;
+    padding: 0.5em;
+    width: 100%;
+    height: 400px;
+    display: grid;
+    box-shadow: 0 0 5px #023e8a;
+    /* color theme */
+    background-color: #f5d847;
+}
+
+.card.avatar {
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 0.8rem;
+    padding: 0.5em;
+    width: 100%;
+    height: 400px;
+    display: grid;
+    box-shadow: 0 0 5px #023e8a;
+    /* color theme */
+    background-color: #caf0f8;
+}
+
+.card.percy {
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 0.8rem;
+    padding: 0.5em;
+    width: 100%;
+    height: 400px;
+    display: grid;
+    box-shadow: 0 0 5px #023e8a;
+    /* color theme */
+    background-color: #ed5426;
+}
+
+.card.nature {
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 0.8rem;
+    padding: 0.5em;
+    width: 100%;
+    height: 400px;
+    display: grid;
+    box-shadow: 0 0 5px #023e8a;
+    /* color theme */
+    background-color: #008000;
+}
+
+/*===================== COLOR PALETTES == END ================== */
+
+.card-tags {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto;
+    gap: 0.5rem;
+}
+
+.card-colorButton {
+    display: block;
+    height: max-content;
+
+    background-color: rgb(98, 255, 0);
+    border: 1px solid #000;
+    padding: 0.5rem 1rem;
+    border-radius: 2em;
+
+    color: white;
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        linear-gradient(300deg,
+            rgba(255, 0, 0, 1) 0%,
+            rgba(255, 154, 0, 1) 10%,
+            rgba(208, 222, 33, 1) 20%,
+            rgba(79, 220, 74, 1) 30%,
+            rgba(63, 218, 216, 1) 40%,
+            rgba(47, 201, 226, 1) 50%,
+            rgba(28, 127, 238, 1) 60%,
+            rgb(143, 87, 255) 70%,
+            rgba(186, 12, 248, 1) 80%,
+            rgba(251, 7, 217, 1) 90%,
+            rgba(255, 0, 0, 1) 100%);
+}
+
+.card-colorButton:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        linear-gradient(300deg,
+            rgba(255, 0, 0, 1) 0%,
+            rgba(255, 154, 0, 1) 10%,
+            rgba(208, 222, 33, 1) 20%,
+            rgba(79, 220, 74, 1) 30%,
+            rgba(63, 218, 216, 1) 40%,
+            rgba(47, 201, 226, 1) 50%,
+            rgba(28, 127, 238, 1) 60%,
+            rgb(143, 87, 255) 70%,
+            rgba(186, 12, 248, 1) 80%,
+            rgba(251, 7, 217, 1) 90%,
+            rgba(255, 0, 0, 1) 100%);
+}
+
+.card-readButton {
+    background-color: #00fff7;
+}
+
+/* JS toggled classes */
+.card-readButton.false {
+    width: max-content;
+    height: max-content;
+    padding: 0.5rem 1rem;
+    border-radius: 2em;
+    border: 1px solid #000;
+    background-color: lightyellow;
+}
+
+.card-readButton.true {
+    width: max-content;
+    height: max-content;
+    padding: 0.5rem 1rem;
+    border-radius: 2em;
+    border: 1px solid #000;
+    background-color: #00d5ff;
+}
+
+.card-readButton:hover,
+.card-removeButton:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+}
+
+.card-removeButton {
+    color: white;
+    background-color: #f06060;
+
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 1rem;
+    border: 1px solid #000;
+}
+
+/* FOOTER AREA */
+footer {
+    text-align: center;
+    padding: 1em 0;
+}
+
+/* FORM VALIDATION */
+input[name="title"].invalid,
+input[name="author"].invalid,
+input[name="pages"].invalid {
+    background-color: rgb(255, 147, 147);
+    border: 2px solid red;
+    color: black;
+}
+
+.input-box .error {
+    position: absolute;
+    top: 60%;
+    left: 1rem;
+    color: red;
+    font-size: 0.8rem;
+}
