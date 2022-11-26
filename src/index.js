@@ -100,7 +100,8 @@ cardsBox.addEventListener('click', (e) => {
     cardsBox, 
     palettes, 
     lastPalette, 
-    printBooksInLibrary
+    printBooksInLibrary,
+    generatePalette
   );
 });
 

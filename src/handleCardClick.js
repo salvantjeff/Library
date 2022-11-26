@@ -4,7 +4,8 @@ function handleCardClick(
   cardsBox, 
   palettes, 
   lastPalette,
-  printBooksInLibrary
+  printBooksInLibrary,
+  generatePalette
   ) {
   let button = e.target;
   let buttonIdx = parseInt(button.dataset.index);
