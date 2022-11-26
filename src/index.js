@@ -7,6 +7,18 @@ import { isEmpty, checkValidity, validateForm} from "./validators";
 import { addMessage, removeMessage } from "./messages";
 import initPageLoad from './pageLoad';
 initPageLoad();
+import { initializeApp } from 'firebase/app';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAFFBySECU6f7rNcFTYAq9DcKbRi6qkAPY",
+  authDomain: "library-app-2919e.firebaseapp.com",
+  projectId: "library-app-2919e",
+  storageBucket: "library-app-2919e.appspot.com",
+  messagingSenderId: "734345502110",
+  appId: "1:734345502110:web:c054bf7d52153e329d8a8f"
+};
+
+const app = initializeApp(firebaseConfig);
 
 let palettes = ['standard', 'avatar', 'percy', 'nature'];
 let lastPalette;
