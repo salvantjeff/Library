@@ -8,6 +8,7 @@ import { addMessage, removeMessage } from "./messages";
 import initPageLoad from './pageLoad';
 initPageLoad();
 import { initializeApp } from 'firebase/app';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAFFBySECU6f7rNcFTYAq9DcKbRi6qkAPY",
@@ -19,6 +20,9 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+
 
 let palettes = ['standard', 'avatar', 'percy', 'nature'];
 let lastPalette;
