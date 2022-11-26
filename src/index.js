@@ -94,7 +94,14 @@ submitBook.addEventListener('click', (e) => {
 });
 
 cardsBox.addEventListener('click', (e) => {
-  handleCardClick(e, myLibrary, cardsBox, palettes, lastPalette);
+  handleCardClick(
+    e, 
+    myLibrary, 
+    cardsBox, 
+    palettes, 
+    lastPalette, 
+    printBooksInLibrary
+  );
 });
 
 // on page load - use local storage 
