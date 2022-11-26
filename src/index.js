@@ -46,13 +46,14 @@ inputs.forEach(input => {
   return input.addEventListener(
     'input', 
     validateForm.bind(
+      input,
       addMessage, 
       removeMessage, 
       titleError, 
       authorError, 
       pagesError
     )
-  )
+  );
 });
 
 modal.addEventListener('click', (e) => {
