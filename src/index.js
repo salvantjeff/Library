@@ -5,6 +5,8 @@ import handleCardClick from './handleCardClick';
 import addBookToLibrary from './addBookToLibrary';
 import { isEmpty, checkValidity, validateForm} from "./validators";
 import { addMessage, removeMessage } from "./messages";
+import initPageLoad from './pageLoad';
+initPageLoad();
 
 let palettes = ['standard', 'avatar', 'percy', 'nature'];
 let lastPalette;
@@ -30,7 +32,7 @@ function hideText(){
 }
 
 showForm.addEventListener('click', () => {
-    modal.showModal();
+  modal.showModal();
 });
 
 const titleError = document.querySelector('[data-id="title"]');
@@ -46,7 +48,6 @@ inputs.forEach(input => {
     validateForm.bind(
       addMessage, 
       removeMessage, 
-      input, 
       titleError, 
       authorError, 
       pagesError
