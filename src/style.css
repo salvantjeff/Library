@@ -19,6 +19,13 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.home-page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+}
+
 /* HEADER AREA */
 header {
     padding: 1em 2em;
@@ -134,7 +141,6 @@ label.selected {
 .container {
     padding: 0 2em 2em;
     background-color: #00bbf9;
-    min-height: 100vh;
 }
 
 .add-book-area {
