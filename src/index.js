@@ -22,6 +22,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+const newUserEmail = document.getElementById('sign-up_email');
+const newUserPassword = document.getElementById('sign-up_pwd');
+const createAccountButton = document.querySelector('.sign-up_button');
+const signUpForm = document.querySelector('.sign-up_form');
+
 
 
 let palettes = ['standard', 'avatar', 'percy', 'nature'];
