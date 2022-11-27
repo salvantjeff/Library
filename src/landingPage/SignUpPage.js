@@ -18,6 +18,7 @@ const Email = () => {
     email.setAttribute('type', 'email');
     email.setAttribute('id', 'sign-up_email');
     email.setAttribute('placeholder', 'thor@gmail.com');
+    email.setAttribute('required', 'true');
     return email;
 }
 
