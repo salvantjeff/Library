@@ -29,6 +29,8 @@ body {
 /* HEADER AREA */
 header {
     padding: 1em 2em;
+    display: flex;
+    justify-content: space-between;
 }
 
 /* FORM */
@@ -41,7 +43,7 @@ header {
     gap: 1em;
 }
 
-form h1 {
+#form h1 {
     text-align: center;
 }
 
