@@ -37,7 +37,7 @@ const accountButton = document.querySelector('.sign-in_button');
 const signInForm = document.querySelector('.sign-in_form');
 
 const signInButton = document.querySelector('.sign-in_link');
-const signUpButton = document.querySelector('.sign-up_link');
+const signUpLink = document.querySelector('.sign-up_link');
 const signInPage = document.querySelector('.sign-in_page');
 const signUpPage = document.querySelector('.sign-up_page');
 
@@ -85,9 +85,15 @@ async function handleSignIn (e) {
 
 signUpForm.addEventListener('submit', handleCreateAccount);
 signInForm.addEventListener('submit', handleSignIn);
-signInButton.addEventListener('click', (e) => {
+
+signInButton.addEventListener('click', () => {
   signInPage.classList.remove('hide');
   signUpPage.classList.add('hide');
+});
+
+signUpLink.addEventListener('click', () => {
+  signInPage.classList.add('hide');
+  signUpPage.classList.remove('hide');
 });
 
 let palettes = ['standard', 'avatar', 'percy', 'nature'];
@@ -100,7 +106,7 @@ const labels = document.querySelectorAll('.plc-holder');
 const inputs = document.querySelectorAll('.input-box input');
 let isTyping = false;
 
-function hideText(){
+function hideText() {
   if (!isTyping) return
   const currentInput = this;
   labels.forEach(label => {
