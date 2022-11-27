@@ -13,6 +13,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  onAuthStateChanged,
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -120,6 +121,22 @@ async function handleLogOut() {
 const logOutButton = document.querySelector('.log-out_button');
 logOutButton.addEventListener('click', () => {
   handleLogOut();
+});
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in
+    const uid = user.uid;
+    // ...
+    landingPage.classList.add('hide');
+    homePage.classList.remove('hide');
+  } else {
+    // User is signed out
+    landingPage.classList.remove('hide');
+    signUpPage.classList.add('hide');
+    signInPage.classList.remove('hide');
+    homePage.classList.add('hide');
+  }
 });
 
 let palettes = ['standard', 'avatar', 'percy', 'nature'];
