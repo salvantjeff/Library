@@ -18,6 +18,7 @@ const Email = () => {
     email.setAttribute('type', 'email');
     email.setAttribute('id', 'sign-in_email');
     email.setAttribute('placeholder', 'thor@gmail.com');
+    email.setAttribute('required', 'true');
     return email;
 }
 
@@ -107,6 +108,7 @@ const createAuthContent = () => {
 const SignInPage = () => {
     const page = document.createElement('div');
     page.classList.add('sign-in_page');
+    page.classList.add('hide');
     page.append(createAuthContent());
     return page;
 }
