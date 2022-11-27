@@ -26,6 +26,10 @@ body {
     grid-template-rows: auto 1fr auto;
 }
 
+.home-page.hide {
+    display: none;
+}
+
 /* HEADER AREA */
 header {
     padding: 1em 2em;
