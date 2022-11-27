@@ -1,3 +1,5 @@
+import { SignInWithGoogleButton } from "./GoogleButton";
+
 const InputItem = (input, label, htmlFor, text) => {
     const item = document.createElement('p');
     item.classList.add('input-item');
@@ -70,9 +72,7 @@ const SignInForm = () => {
 const createAuthConnections = () => {
     const connections = document.createElement('div');
     connections.classList.add('auth-connections');
-    const google = document.createElement('div');
-    google.textContent = 'sign in with google';
-    connections.append(google);
+    connections.append(SignInWithGoogleButton());
     return connections;
 }
 
@@ -108,7 +108,6 @@ const createAuthContent = () => {
 const SignInPage = () => {
     const page = document.createElement('div');
     page.classList.add('sign-in_page');
-    page.classList.add('hide');
     page.append(createAuthContent());
     return page;
 }
