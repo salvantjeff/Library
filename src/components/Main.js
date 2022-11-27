@@ -23,7 +23,6 @@ const Main = () => {
     main.classList.add('container');
     main.append(createBookArea());
     main.append(createCards());
-    main.append(LandingPage());
     return main;
 };
 
