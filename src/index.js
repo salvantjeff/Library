@@ -43,6 +43,8 @@ const signInPage = document.querySelector('.sign-in_page');
 const signUpPage = document.querySelector('.sign-up_page');
 const landingPage = document.querySelector('.landing-page');
 
+const homePage = document.querySelector('.home-page');
+
 async function handleCreateAccount(e) {
   e.preventDefault();
   //validate form
@@ -56,6 +58,7 @@ async function handleCreateAccount(e) {
     const userCredentials = await createUserWithEmailAndPassword(auth, newUserEmail.value, newUserPassword.value);
     //signedIn
     const user = userCredentials.user;
+    homePage.classList.remove('hide');
     signUpForm.reset();
   } catch (error) {
     const errorCode = error.code;
@@ -81,6 +84,7 @@ async function handleSignIn (e) {
     signUpPage.classList.add('hide');
     signInPage.classList.add('hide');
     landingPage.classList.add('hide');
+    homePage.classList.remove('hide');
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
@@ -107,6 +111,7 @@ async function handleLogOut() {
     console.log('sign-out was successful');
     landingPage.classList.remove('hide');
     signInPage.classList.remove('hide');
+    homePage.classList.add('hide');
   } catch (error) {
     console.log(error, 'sorry an error occurred while signing out');
   }
