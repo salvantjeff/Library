@@ -108,6 +108,7 @@ const createAuthContent = () => {
 const SignUpPage = () => {
     const page = document.createElement('div');
     page.classList.add('sign-up_page');
+    page.classList.add('hide');
     page.append(createAuthContent());
     return page;
 }
