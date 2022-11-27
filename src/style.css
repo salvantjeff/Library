@@ -35,6 +35,15 @@ header {
     padding: 1em 2em;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.log-out_button {
+    width: max-content;
+    height: max-content;
+    border: none;
+    color: rgb(0, 170, 255);
+    background-color: white;
 }
 
 /* FORM */
