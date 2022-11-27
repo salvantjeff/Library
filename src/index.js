@@ -14,6 +14,8 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -133,9 +135,42 @@ onAuthStateChanged(auth, (user) => {
   } else {
     // User is signed out
     landingPage.classList.remove('hide');
-    signUpPage.classList.add('hide');
-    signInPage.classList.remove('hide');
+    signUpPage.classList.remove('hide');
+    signInPage.classList.add('hide');
     homePage.classList.add('hide');
+  }
+});
+
+auth.useDeviceLanguage();
+const provider = new GoogleAuthProvider();
+
+async function handleGoogleAuthorization() {
+  try {
+    const result = await signInWithPopup(auth, provider);
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    // ...
+    landingPage.classList.add('hide');
+    homePage.classList.remove('hide');
+  } catch (error) {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  }
+};
+
+signUpPage.addEventListener('click', (e) => {
+  if (e.target.className === 'sing-up-with-google') {
+    console.log(e.target);
+    handleGoogleAuthorization();
   }
 });
 
@@ -192,9 +227,7 @@ modal.addEventListener('click', (e) => {
     modal.close();
   }
 });
-window.addEventListener('click', (e) => {
-  console.log(e.target);
-})
+
 //------------------------CARD FUNCTIONALITY-----------------------------
 // Define vars and constants
 const theForm = document.getElementById('form');
