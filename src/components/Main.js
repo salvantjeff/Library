@@ -1,5 +1,3 @@
-import LandingPage from "../landingPage/LandingPage";
-
 const createBookArea = () => {
     const bookArea = document.createElement('div');
     bookArea.classList.add('add-book-area');
