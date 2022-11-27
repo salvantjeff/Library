@@ -27,7 +27,28 @@ const newUserPassword = document.getElementById('sign-up_pwd');
 const createAccountButton = document.querySelector('.sign-up_button');
 const signUpForm = document.querySelector('.sign-up_form');
 
+async function handleCreateAccount(e) {
+  e.preventDefault();
+  //validate form
+  if (newUserPassword.value.length < 6) {
+    //display error: password must be greater than or equal to 6 chars
+    return;
+  }
 
+  try {
+    //create new user
+    const userCredentials = await createUserWithEmailAndPassword(auth, newUserEmail.value, newUserPassword.value);
+    //signedIn
+    const user = userCredentials.user;
+    signUpForm.reset();
+  } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode, errorMessage);
+  }
+}
+
+signUpForm.addEventListener('submit', handleCreateAccount);
 
 let palettes = ['standard', 'avatar', 'percy', 'nature'];
 let lastPalette;
