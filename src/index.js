@@ -6,7 +6,6 @@ import addBookToLibrary from './addBookToLibrary';
 import { isEmpty, checkValidity, validateForm} from "./validators";
 import { addMessage, removeMessage } from "./messages";
 import initPageLoad from './pageLoad';
-initPageLoad();
 import { initializeApp } from 'firebase/app';
 import { 
   getAuth, 
@@ -17,6 +16,8 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
+
+initPageLoad();
 
 const firebaseConfig = {
   apiKey: "AIzaSyAFFBySECU6f7rNcFTYAq9DcKbRi6qkAPY",
@@ -32,12 +33,10 @@ const auth = getAuth(app);
 
 const newUserEmail = document.getElementById('sign-up_email');
 const newUserPassword = document.getElementById('sign-up_pwd');
-const createAccountButton = document.querySelector('.sign-up_button');
 const signUpForm = document.querySelector('.sign-up_form');
 
 const userEmail = document.getElementById('sign-in_email');
 const userPassword = document.getElementById('sign-in_pwd');
-const accountButton = document.querySelector('.sign-in_button');
 const signInForm = document.querySelector('.sign-in_form');
 
 const signInLink = document.querySelector('.sign-in_link');
@@ -125,21 +124,6 @@ logOutButton.addEventListener('click', () => {
   handleLogOut();
 });
 
-// onAuthStateChanged(auth, (user) => {
-//   if (user) {
-//     // User is signed in
-//     const uid = user.uid;
-//     // ...
-//     landingPage.classList.add('hide');
-//     homePage.classList.remove('hide');
-//   } else {
-//     // User is signed out
-//     landingPage.classList.remove('hide');
-//     signUpPage.classList.remove('hide');
-//     signInPage.classList.add('hide');
-//     homePage.classList.add('hide');
-//   }
-// });
 async function checkLoginStatus() {
   onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -187,14 +171,12 @@ async function handleGoogleAuthorization() {
 
 signUpPage.addEventListener('click', (e) => {
   if (e.target.className === 'sing-up-with-google') {
-    console.log(e.target);
     handleGoogleAuthorization();
   };
 });
 
 signInPage.addEventListener('click', (e) => {
   if (e.target.className === 'sing-in-with-google') {
-    console.log(e.target);
     handleGoogleAuthorization();
   };
 });
