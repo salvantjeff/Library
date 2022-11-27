@@ -3,7 +3,7 @@ import createHeading from "./popup/createHeading";
 const logOutButton = () => {
     const button = document.createElement('button');
     button.classList.add('log-out_button');
-    button.textContent = 'Log out';
+    button.textContent = 'Sign Out';
     return button;
 };
 
