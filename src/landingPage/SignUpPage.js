@@ -1,3 +1,5 @@
+import { SignUpWithGoogleButton } from "./GoogleButton";
+
 const InputItem = (input, label, htmlFor, text) => {
     const item = document.createElement('p');
     item.classList.add('input-item');
@@ -70,9 +72,7 @@ const SignUpForm = () => {
 const createAuthConnections = () => {
     const connections = document.createElement('div');
     connections.classList.add('auth-connections');
-    const google = document.createElement('div');
-    google.textContent = 'sign in with google';
-    connections.append(google);
+    connections.append(SignUpWithGoogleButton());
     return connections;
 }
 
