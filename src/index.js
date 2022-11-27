@@ -8,7 +8,11 @@ import { addMessage, removeMessage } from "./messages";
 import initPageLoad from './pageLoad';
 initPageLoad();
 import { initializeApp } from 'firebase/app';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { 
+  getAuth, 
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAFFBySECU6f7rNcFTYAq9DcKbRi6qkAPY",
@@ -26,6 +30,11 @@ const newUserEmail = document.getElementById('sign-up_email');
 const newUserPassword = document.getElementById('sign-up_pwd');
 const createAccountButton = document.querySelector('.sign-up_button');
 const signUpForm = document.querySelector('.sign-up_form');
+
+const userEmail = document.getElementById('sign-in_email');
+const userPassword = document.getElementById('sign-in_pwd');
+const accountButton = document.querySelector('.sign-in_button');
+const signInForm = document.querySelector('.sign-in_form');
 
 async function handleCreateAccount(e) {
   e.preventDefault();
@@ -48,8 +57,29 @@ async function handleCreateAccount(e) {
   }
 }
 
-signUpForm.addEventListener('submit', handleCreateAccount);
+async function handleSignIn (e) {
+  e.preventDefault();
+  //validate form
+  if (userPassword.value.length < 6) {
+    //display error: password must be greater than or equal to 6 chars
+    return;
+  };
 
+  try {
+    const userCredentials = await signInWithEmailAndPassword(auth, userEmail.value, userPassword.value);
+    //Signed in
+    console.log('yay! you have signed in!');
+    const user = userCredentials.user;
+    signInForm.reset();
+  } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode, errorMessage);
+  }
+}
+
+signUpForm.addEventListener('submit', handleCreateAccount);
+signInForm.addEventListener('submit', handleSignIn);
 let palettes = ['standard', 'avatar', 'percy', 'nature'];
 let lastPalette;
 
