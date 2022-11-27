@@ -1,3 +1,5 @@
+import LandingPage from "../landingPage/LandingPage";
+
 const createBookArea = () => {
     const bookArea = document.createElement('div');
     bookArea.classList.add('add-book-area');
@@ -21,6 +23,7 @@ const Main = () => {
     main.classList.add('container');
     main.append(createBookArea());
     main.append(createCards());
+    main.append(LandingPage());
     return main;
 };
 
