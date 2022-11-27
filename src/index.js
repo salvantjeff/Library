@@ -12,6 +12,7 @@ import {
   getAuth, 
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -40,6 +41,7 @@ const signInLink = document.querySelector('.sign-in_link');
 const signUpLink = document.querySelector('.sign-up_link');
 const signInPage = document.querySelector('.sign-in_page');
 const signUpPage = document.querySelector('.sign-up_page');
+const landingPage = document.querySelector('.landing-page');
 
 async function handleCreateAccount(e) {
   e.preventDefault();
@@ -76,6 +78,9 @@ async function handleSignIn (e) {
     console.log('yay! you have signed in!');
     const user = userCredentials.user;
     signInForm.reset();
+    signUpPage.classList.add('hide');
+    signInPage.classList.add('hide');
+    landingPage.classList.add('hide');
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
@@ -94,6 +99,22 @@ signInLink.addEventListener('click', () => {
 signUpLink.addEventListener('click', () => {
   signInPage.classList.add('hide');
   signUpPage.classList.remove('hide');
+});
+
+async function handleLogOut() {
+  try {
+    await signOut(auth);
+    console.log('sign-out was successful');
+    landingPage.classList.remove('hide');
+    signInPage.classList.remove('hide');
+  } catch (error) {
+    console.log(error, 'sorry an error occurred while signing out');
+  }
+};
+
+const logOutButton = document.querySelector('.log-out_button');
+logOutButton.addEventListener('click', () => {
+  handleLogOut();
 });
 
 let palettes = ['standard', 'avatar', 'percy', 'nature'];
@@ -149,7 +170,9 @@ modal.addEventListener('click', (e) => {
     modal.close();
   }
 });
-
+window.addEventListener('click', (e) => {
+  console.log(e.target);
+})
 //------------------------CARD FUNCTIONALITY-----------------------------
 // Define vars and constants
 const theForm = document.getElementById('form');
