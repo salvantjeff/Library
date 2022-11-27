@@ -12,4 +12,16 @@ const SignUpWithGoogleButton = () => {
     return button;
 };
 
-export { SignUpWithGoogleButton };
+const SignInWithGoogleButton = () => {
+    const button = document.createElement('div');
+    button.classList.add('sing-in-with-google');
+    const text = document.createElement('p');
+    text.textContent = 'Sign in with Google';
+    const icon = document.createElement('img');
+    icon.setAttribute('src', googleIcon);
+    button.appendChild(icon);
+    button.appendChild(text);
+    return button;
+};
+
+export { SignUpWithGoogleButton, SignInWithGoogleButton };
