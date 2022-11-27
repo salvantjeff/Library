@@ -125,22 +125,42 @@ logOutButton.addEventListener('click', () => {
   handleLogOut();
 });
 
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // User is signed in
-    const uid = user.uid;
-    // ...
-    landingPage.classList.add('hide');
-    homePage.classList.remove('hide');
-  } else {
-    // User is signed out
-    landingPage.classList.remove('hide');
-    signUpPage.classList.remove('hide');
-    signInPage.classList.add('hide');
-    homePage.classList.add('hide');
-  }
-});
+// onAuthStateChanged(auth, (user) => {
+//   if (user) {
+//     // User is signed in
+//     const uid = user.uid;
+//     // ...
+//     landingPage.classList.add('hide');
+//     homePage.classList.remove('hide');
+//   } else {
+//     // User is signed out
+//     landingPage.classList.remove('hide');
+//     signUpPage.classList.remove('hide');
+//     signInPage.classList.add('hide');
+//     homePage.classList.add('hide');
+//   }
+// });
+async function checkLoginStatus() {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in
+      const uid = user.uid;
+      // ...
+      landingPage.classList.add('hide');
+      homePage.classList.remove('hide');
+      signUpPage.classList.add('hide');
+      signInPage.classList.remove('hide');
+    } else {
+      // User is signed out
+      landingPage.classList.remove('hide');
+      signUpPage.classList.add('hide');
+      signInPage.classList.remove('hide');
+      homePage.classList.add('hide');
+    }
+  });
+}
 
+checkLoginStatus();
 auth.useDeviceLanguage();
 const provider = new GoogleAuthProvider();
 
@@ -153,8 +173,6 @@ async function handleGoogleAuthorization() {
     // The signed-in user info.
     const user = result.user;
     // ...
-    landingPage.classList.add('hide');
-    homePage.classList.remove('hide');
   } catch (error) {
     // Handle Errors here.
     const errorCode = error.code;
@@ -171,7 +189,14 @@ signUpPage.addEventListener('click', (e) => {
   if (e.target.className === 'sing-up-with-google') {
     console.log(e.target);
     handleGoogleAuthorization();
-  }
+  };
+});
+
+signInPage.addEventListener('click', (e) => {
+  if (e.target.className === 'sing-in-with-google') {
+    console.log(e.target);
+    handleGoogleAuthorization();
+  };
 });
 
 let palettes = ['standard', 'avatar', 'percy', 'nature'];
