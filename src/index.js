@@ -36,7 +36,7 @@ const userPassword = document.getElementById('sign-in_pwd');
 const accountButton = document.querySelector('.sign-in_button');
 const signInForm = document.querySelector('.sign-in_form');
 
-const signInButton = document.querySelector('.sign-in_link');
+const signInLink = document.querySelector('.sign-in_link');
 const signUpLink = document.querySelector('.sign-up_link');
 const signInPage = document.querySelector('.sign-in_page');
 const signUpPage = document.querySelector('.sign-up_page');
@@ -86,7 +86,7 @@ async function handleSignIn (e) {
 signUpForm.addEventListener('submit', handleCreateAccount);
 signInForm.addEventListener('submit', handleSignIn);
 
-signInButton.addEventListener('click', () => {
+signInLink.addEventListener('click', () => {
   signInPage.classList.remove('hide');
   signUpPage.classList.add('hide');
 });
