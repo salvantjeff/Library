@@ -19,13 +19,35 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.home-page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+}
+
+.home-page.hide {
+    display: none;
+}
+
 /* HEADER AREA */
 header {
     padding: 1em 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.log-out_button {
+    width: max-content;
+    height: max-content;
+    border: none;
+    color: rgb(0, 170, 255);
+    background-color: white;
 }
 
 /* FORM */
-form {
+#form {
     max-width: 600px;
     background-color: pink;
     border-radius: 0.8em;
@@ -34,7 +56,7 @@ form {
     gap: 1em;
 }
 
-form h1 {
+#form h1 {
     text-align: center;
 }
 
@@ -134,7 +156,6 @@ label.selected {
 .container {
     padding: 0 2em 2em;
     background-color: #00bbf9;
-    min-height: 100vh;
 }
 
 .add-book-area {
