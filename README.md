@@ -1,6 +1,6 @@
 # library
 ## [Live Demo](https://library-app-2919e.web.app)
-![Library](images/library-screen-shot.png)
+![Library](images/library-v2-screenshot.png)
 
 ## Introduction
 Purpose of this project was to create a small Library app. 
